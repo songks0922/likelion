@@ -34,19 +34,24 @@
 		</div>
 		<br />
 		{% endfor %}
-	</div>
-	{% if blog.has_previous %}
-	<a href="?page=1">처음으로</a>
-	<a href="?page={{blogs.previous_page_number}}">이전</a>
-	{% endif %}
-	<span>{{blogs.number}}</span>
-	<span>/</span>
-	<span>{{blogs.paginator.num_pages}}</span>
+		<div>
 
-	{% if blogs.has_next %}
-	<a href="?page={{blogs.next_page_number}}">다음</a>
-	<a href="?page={{blogs.paginator.num_pages}}">마지막으로</a>
-	{% endif %}
-	{% endblock %}
+		{% if blogs.has_previous %}
+			<a href="?page=1">처음으로</a>
+			<a href="?page={{blogs.previous_page_number}}">이전</a>
+			{% endif %}
+			<span>{{blogs.number}}</span>
+			<span>/</span>
+			<span>{{blogs.paginator.num_pages}}</span>
+
+			{% if blogs.has_next %}
+			<a href="?page={{blogs.next_page_number}}">다음</a>
+			<a href="?page={{blogs.paginator.num_pages}}">마지막으로</a>
+			{% endif %}
+		</div>
+
+		{% endblock %}
+	</div>
+
 </body>
 </html>

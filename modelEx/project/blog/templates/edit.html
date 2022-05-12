@@ -5,18 +5,22 @@
 	<title>Title</title>
 </head>
 <body>
+	{% extends 'base.html' %} {% block content %}
 
-	<form style="display:flex; flex-direction:column; width: 400px" action="{% url 'update' blog.id %}" method="POST" enctype="multipart/form-data">
-		{% csrf_token %}
-		제목:<input type="text" name="title" value="{{blog.title}}" />
-		본문:<textarea name="content"  id="" cols="30"rows="10">{{blog.content}}</textarea>
-		<h4 사진></h4>
-		<input type="file" name="image" />
-		<br />
-		<br />
-		<br />
-		<br />
-		<input type="submit" value="작성하기" />
-	</form>
+	<div>
+		<div style="display:flex; flex-direction:column;">
+
+			<h1>글 수정하기</h1>
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<table>
+					{{form.as_table}}
+				</table>
+				<input type="submit" value="저장" />
+			</form>
+		</div>
+	</div>
+
+	{% endblock %}
 </body>
 </html>

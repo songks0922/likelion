@@ -14,7 +14,7 @@
 		<div style="display:flex; flex-direction:column;">
 
 			<h1>새 글 작성하기</h1>
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				<table>
 					{{form.as_table}}
