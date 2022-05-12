@@ -1,0 +1,39 @@
+.column-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.each-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid grey;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.each-post:hover {
+    box-shadow: 5px 5px 5px 5px gray;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+.new-post_link {
+    text-decoration: none;
+}
+

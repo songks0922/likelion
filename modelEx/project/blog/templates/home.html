@@ -1,20 +1,31 @@
 <!doctype html>
+{% extends 'base.html' %} {% block content %}
+
 {% load static %}
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 	<title>Document</title>
 </head>
 <body>
-	<div>
+
+	<div class="container">
 		<h1>LikeLion 10th Blog Project</h1>
+		<img
+				src="{% static 'back.jpg' %}"
+				width="100"
+				height="100"
+				class="logo"
+		/>
 		<br />
-		<a href="{% url 'new'%}">새 글 작성하기</a> <!-- 추가 -->
+		<a class="new-post_link" href="{% url 'new'%}">새 글 작성하기</a> <!-- 추가 -->
 		{% for blog in blogs %}
-		<div>
+		<div class="each-post">
 			<a href="{%url 'detail' blog.id %}">
 				<h5>{{blog.title}}</h5>
 				{{blog.created_at}}
@@ -24,5 +35,18 @@
 		<br />
 		{% endfor %}
 	</div>
+	{% if blog.has_previous %}
+	<a href="?page=1">처음으로</a>
+	<a href="?page={{blogs.previous_page_number}}">이전</a>
+	{% endif %}
+	<span>{{blogs.number}}</span>
+	<span>/</span>
+	<span>{{blogs.paginator.num_pages}}</span>
+
+	{% if blogs.has_next %}
+	<a href="?page={{blogs.next_page_number}}">다음</a>
+	<a href="?page={{blogs.paginator.num_pages}}">마지막으로</a>
+	{% endif %}
+	{% endblock %}
 </body>
 </html>
