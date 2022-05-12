@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <h1><b>환영합니다. {{ user.username }} 님!</b></h1><br><br>
+<h2>
+    <a href="{% url 'writing' %}">글쓰기</a><br>
+    <a href="{% url 'mypage' %}">mypage</a><br></h2>
+    {% else %}
+    <h2>
+    <a href="{% url 'signup' %}">Signup</a><br>
+    <a href="{% url 'login' %}">Login</a><br>
+    </h2>
+    {% endif %}
+</body>
+
+</html>

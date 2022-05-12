@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰는 페이지</title>
+</head>
+
+<body>
+    <h1>글쓰는 페이지</h1>
+
+    <br><br>
+
+    <form action="{%url 'writing'%}" method="POST" enctype="multipart/form-data" onsubmit="return chk();">
+        {%csrf_token%}
+        <div>
+            <input type="text" name="content" id="content" placeholder="내용을 입력하세요."
+                style="width:800px; height:70px; font-size:30px;">
+
+            <input type="submit"></input>
+        </div>
+
+    </form>
+</body>
+
+</html>
